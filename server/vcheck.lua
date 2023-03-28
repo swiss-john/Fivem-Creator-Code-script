@@ -1,4 +1,4 @@
-PerformHttpRequest( 'https://raw.githubusercontent.com/p2thon/REYZ-FX/main/mainv' , function( err, text, headers )
+PerformHttpRequest( 'https://raw.githubusercontent.com/p2thon/Fivem-Creator-Code/main/version.txt' , function( err, text, headers )
     local curVer = "1.0.0"
 
 	
