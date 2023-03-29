@@ -14,6 +14,7 @@ local steamname = GetPlayerName(_source)
             local resultfrommysql2 = result[1].ccode
             if resultfrommysql2 == "server" then
                 
+                -- CODE 1 HERE
                 if code == "NOAH" then
                     xPlayer.addAccountMoney("bank", 5000)
                     xPlayer.addInventoryItem("cola", 5)
@@ -24,6 +25,8 @@ local steamname = GetPlayerName(_source)
                  else
                     TriggerClientEvent('esx:showNotification', xPlayer.source, '~r~Dieser Code ist ungültig!~s~')
                  end
+                 -- CODE 1 ENDS HERE
+
 
             else
                 TriggerClientEvent('esx:showNotification', xPlayer.source, '~r~Du hast bereits den Creator Code "'..resultfrommysql2..'"eingelöst!~s~')
