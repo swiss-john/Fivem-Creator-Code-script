@@ -15,6 +15,11 @@ For devping, first activate the developer mode in discord, then right-click on a
 # COPYRIGHT
 The script may be modified.
 
+
+
+
+
+
 # GERMAN
 Dieses Skript fügt den Befehl /creatorcode und die Spalte ccode in die SQL ein. Wenn ein Spieler den Befehl /creatorcode [CODE] eingibt, prüft es, ob ein Code bereits in der Datenbank eingelöst wurde, wenn nicht, wird die Belohnung dem Spieler zugewiesen, beim ersten Download des Skripts ist der Code "NOAH" mit der Belohnung 5000$ und 5 Cola vorhanden. 
 
