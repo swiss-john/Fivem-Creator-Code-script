@@ -1,5 +1,6 @@
 ESX = exports["es_extended"]:getSharedObject()
-
+local webhook = "WEBHOOK HERE"
+local devping = "<@%ROLE ID HERE>"
 
 RegisterCommand("creatorcode", function(source, args, rawCommand)
 local _source = source
@@ -21,7 +22,7 @@ local steamname = GetPlayerName(_source)
 
                     MySQL.Async.execute('UPDATE users SET ccode = @ccode WHERE identifier = @identifier', {['@ccode'] = code, ['@identifier'] = xPlayerz.identifier})
                     TriggerClientEvent('esx:showNotification', xPlayer.source, '~g~Code "'..code..'" Eingelöst!~s~')
-                    PerformHttpRequest('https://discord.com/api/webhooks/1090324781083140166/uk4Sf3a7hwp2oEvi_vfDaHon8Kt--zMuWGi8A8wBRM7iqFQlxjoIP9hAbxbdz4lRyuEh', function(err, text, headers) end, 'POST', json.encode({username = "CREATOR CODE", content = steamname.." hat den Creator Code "..code.." eingelöst"}), { ['Content-Type'] = 'application/json' })
+                    PerformHttpRequest(webhook, function(err, text, headers) end, 'POST', json.encode({username = "CREATOR CODE", content = steamname.." hat den Creator Code "..code.." eingelöst"}), { ['Content-Type'] = 'application/json' })
                  else
                     TriggerClientEvent('esx:showNotification', xPlayer.source, '~r~Dieser Code ist ungültig!~s~')
                  end
@@ -33,7 +34,7 @@ local steamname = GetPlayerName(_source)
             end
         else
             TriggerClientEvent('esx:showNotification', xPlayer.source, '~r~Coulnt fetch SQL, Please contact the Support~s~')
-            PerformHttpRequest('https://discord.com/api/webhooks/1090324781083140166/uk4Sf3a7hwp2oEvi_vfDaHon8Kt--zMuWGi8A8wBRM7iqFQlxjoIP9hAbxbdz4lRyuEh', function(err, text, headers) end, 'POST', json.encode({username = "CREATOR CODE", content = steamname.." versuchte "..code.." einzulösen aber die Datenbank reagiert nicht. <@&960513991359209526>"}), { ['Content-Type'] = 'application/json' })
+            PerformHttpRequest(webhook, function(err, text, headers) end, 'POST', json.encode({username = "CREATOR CODE", content = steamname.." versuchte "..code.." einzulösen aber die Datenbank reagiert nicht."..devping}), { ['Content-Type'] = 'application/json' })
         end
     end)
 end)
